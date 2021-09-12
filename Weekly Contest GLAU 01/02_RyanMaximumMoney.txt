@@ -1,0 +1,58 @@
+Here is a sample implementation in C++:
+--------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+void solve()
+{   
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    // Taking Input
+    for(int i = 0; i < n; i++)
+    {
+        cin>>v[i];
+    }
+    
+    // Without Any Change 
+    int sum = 0;
+    for(int i = 0; i < n; i++)
+    {
+        sum = sum + v[i]*(i+1);
+    }
+
+    // Placing After
+    int sum1 = 0;
+    sum1 = sum1 + v[n-1] * (1);
+    
+    for(int i = 0; i<n-1; i++)
+    {
+        sum1 = sum1 + v[i]*(i+2);
+    }
+    
+    // Placing Before
+    int sum2 = 0;
+    sum2 = sum2 + v[0] * (n);
+    for(int i = 1; i<n; i++)
+    {
+        sum2 = sum2 + v[i]*(i);
+    }
+
+    // Finding Max. of Above Three.
+    int maxEle = max(max(sum1,sum2),sum);
+    
+    cout<<maxEle;
+
+}
+
+// ................................................................................
+int32_t main()
+{
+    int t;
+    cin >> t;
+    for (int test = 0; test < t; test++)
+    {
+        solve();
+        cout << "\n";
+    }
+}

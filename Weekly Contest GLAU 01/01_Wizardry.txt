@@ -1,0 +1,39 @@
+It's easy to prove that a String meeting the following conditions is Wizardry:
+
+>The string should only consist of digits '1' and '4' as characters.
+>The string should begin with digit '1' as character.
+>The string should not contain three consecutive fours (i.e. 444).
+
+Here is a sample implementation in C++:
+--------------------------------------
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    
+    string s;cin>>s;int f=0;
+    for(int i=0;i<s.length();i++){
+        if(s[i]=='1'){
+            if(s[i+1]=='4' and s[i+2]=='4'){
+                f=0;i=i+2;
+            }
+            else if(s[i+1]=='4'){
+                f=0;i++;
+            }
+            else
+            {
+                f=0;
+            }
+            
+        }
+        else
+        {
+            f=1;break;
+        }
+    }
+    if(f==0)
+    std::cout << "Wizardry" << std::endl;
+    else
+    cout<<"Not Wizardry"<<endl;
+    return 0;
+}
